@@ -41,6 +41,38 @@ $app->bearCMS->addons
                 ]
             ]);
 
+            $languages = [
+                'apache' => 'Apache',
+                'bash' => 'Bash',
+                'cplusplus' => 'C++',
+                'csharp' => 'C#',
+                'css' => 'CSS',
+                'dart' => 'Dart',
+                'go' => 'Go',
+                'html' => 'HTML',
+                'java' => 'Java',
+                'javascript' => 'JavaScript',
+                'json' => 'JSON',
+                'kotlin' => 'Kotlin',
+                'less' => 'LESS',
+                'markdown' => 'Markdown',
+                'nginx' => 'NGINX',
+                'objectivec' => 'Objective-C',
+                'perl' => 'Perl',
+                'php' => 'PHP',
+                'plaintext' => 'Plain text',
+                'python' => 'Python',
+                'ruby' => 'Ruby',
+                'rust' => 'Rust',
+                'shell' => 'Shell',
+                'swift' => 'Swift',
+                'typescript' => 'TypeScript',
+                'xml' => 'XML',
+                'yaml' => 'YAML',
+            ];
+
+            \BearCMS\Internal\Config::$appSpecificServerData['kzn49al1'] = json_encode($languages);
+
             \BearCMS\Internal\Themes::$elementsOptions['code'] = function ($context, $idPrefix, $parentSelector) {
                 $groupCode = $context->addGroup(__('bearcms.addon.code-element.theme.options.Code'));
                 $groupCode->addOption($idPrefix . "CodeCSS", "css", '', [
@@ -97,25 +129,6 @@ $app->bearCMS->addons
                     $package->addJSCode($code);
                     $package->get = 'return {"library":window.bearcmscodeelementh,"update":window.bearcmscodeelementu};';
                 });
-
-            $languages = [
-                'bash',
-                'css',
-                'go',
-                'html',
-                'java',
-                'javascript',
-                'json',
-                'kotlin',
-                'perl',
-                'php',
-                'python',
-                'ruby',
-                'rust',
-                'swift',
-                'typescript',
-                'xml',
-            ];
             foreach ($languages as $language) {
                 $app->clientPackages
                     ->add('-bearcms-code-element-highlight-' . $language, function ($package) use ($context, $language) {
