@@ -1,0 +1,23 @@
+{
+    "name": "bearcms/code-element-addon",
+    "description": "Code element for Bear CMS",
+    "keywords": ["code", "element", "Bear CMS"],
+    "homepage": "https://github.com/bearcms/code-element-addon",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bear CMS",
+            "email": "support@bearcms.com",
+            "homepage": "https://bearcms.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "bearcms/bearframework-addon": "1.*",
+        "bearframework/localization-addon": "0.2.*",
+        "ivopetkov/client-packages-bearframework-addon": "0.2.*"
+    },
+    "autoload": {
+        "files": ["autoload.php"]
+    }
+}

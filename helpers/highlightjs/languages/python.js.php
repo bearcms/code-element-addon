@@ -1,0 +1,8 @@
+<?php
+
+return <<<'LANGUAGEFUNCTION'
+function(b){var g={keyword:"and elif is global as in if from raise for except finally print import pass return exec else break not with class assert yield try while continue del or def lambda async await nonlocal|10",built_in:"Ellipsis NotImplemented",literal:"False None True"},c={className:"meta",begin:/^(>>>|\.\.\.) /},d={className:"subst",begin:/\{/,end:/\}/,keywords:g,illegal:/#/},e={className:"string",contains:[b.BACKSLASH_ESCAPE],variants:[{begin:/(u|b)?r?'''/,end:/'''/,contains:[b.BACKSLASH_ESCAPE,
+c],relevance:10},{begin:/(u|b)?r?"""/,end:/"""/,contains:[b.BACKSLASH_ESCAPE,c],relevance:10},{begin:/(fr|rf|f)'''/,end:/'''/,contains:[b.BACKSLASH_ESCAPE,c,d]},{begin:/(fr|rf|f)"""/,end:/"""/,contains:[b.BACKSLASH_ESCAPE,c,d]},{begin:/(u|r|ur)'/,end:/'/,relevance:10},{begin:/(u|r|ur)"/,end:/"/,relevance:10},{begin:/(b|br)'/,end:/'/},{begin:/(b|br)"/,end:/"/},{begin:/(fr|rf|f)'/,end:/'/,contains:[b.BACKSLASH_ESCAPE,d]},{begin:/(fr|rf|f)"/,end:/"/,contains:[b.BACKSLASH_ESCAPE,d]},b.APOS_STRING_MODE,
+b.QUOTE_STRING_MODE]},f={className:"number",relevance:0,variants:[{begin:b.BINARY_NUMBER_RE+"[lLjJ]?"},{begin:"\\b(0o[0-7]+)[lLjJ]?"},{begin:b.C_NUMBER_RE+"[lLjJ]?"}]},h={className:"params",begin:/\(/,end:/\)/,contains:["self",c,f,e]};d.contains=[e,f,c];return{aliases:["py","gyp","ipython"],keywords:g,illegal:/(<\/|->|\?)|=>/,contains:[c,f,e,b.HASH_COMMENT_MODE,{variants:[{className:"function",beginKeywords:"def"},{className:"class",beginKeywords:"class"}],end:/:/,illegal:/[${=;\n,]/,contains:[b.UNDERSCORE_TITLE_MODE,
+h,{begin:/->/,endsWithParent:!0,keywords:"None"}]},{className:"meta",begin:/^[\t ]*@/,end:/$/},{begin:/\b(print|exec)\(/}]}};
+LANGUAGEFUNCTION;

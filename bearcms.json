@@ -1,0 +1,17 @@
+{
+    "id": "bearcms/code-element-addon",
+    "name": "Source code element",
+    "description": "This element adds support for displaying a program's source code beautifully (and colorfully). The currently supported languages are HTML, CSS, JavaScript, JSON, XML, Bash, Go, Java, Kotlin, Perl, PHP, Python, Ruby, Rust, Swift and TypeScript.",
+    "author": {
+        "name": "Bear CMS",
+        "email": "support@bearcms.com",
+        "url": "https://bearcms.com/"
+    },
+    "media": [
+        {
+            "filename": "/assets/1.png",
+            "width": 1591,
+            "height": 1062
+        }
+    ]
+}
