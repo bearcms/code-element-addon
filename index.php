@@ -129,12 +129,12 @@ $app->bearCMS->addons
                     $package->addJSCode($code);
                     $package->get = 'return {"library":window.bearcmscodeelementh,"update":window.bearcmscodeelementu};';
                 });
-            foreach ($languages as $language) {
+            foreach ($languages as $languageID => $languageName) {
                 $app->clientPackages
-                    ->add('-bearcms-code-element-highlight-' . $language, function ($package) use ($context, $language) {
-                        $languageCode = include $context->dir . '/helpers/highlightjs/languages/' . $language . '.js.php';
+                    ->add('-bearcms-code-element-highlight-' . $languageID, function ($package) use ($context, $languageID) {
+                        $languageCode = include $context->dir . '/helpers/highlightjs/languages/' . $languageID . '.js.php';
                         $code = 'clientPackages.get("-bearcms-code-element-highlight").then(function(o){';
-                        $code .= 'var f=' . $languageCode . ';o.library.registerLanguage("' . $language . '",f);';
+                        $code .= 'var f=' . $languageCode . ';o.library.registerLanguage("' . $languageID . '",f);';
                         $code .= '});';
                         $package->addJSCode($code);
                         $package->embedPackage('-bearcms-code-element-highlight');
