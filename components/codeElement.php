@@ -20,7 +20,7 @@ echo '<head>';
 echo '<link rel="client-packages-embed" name="-bearcms-code-element-highlight-' . $language . '">';
 echo '</head>';
 echo '<body>';
-echo '<code class="bearcms-code-element" id="' . $elementID . '">' . nl2br(htmlspecialchars($code)) . '</code>';
+echo '<code class="bearcms-code-element" id="' . $elementID . '">' . htmlspecialchars($code) . '</code>';
 echo '<script>clientPackages.get("-bearcms-code-element-highlight-' . $language . '").then(function(o){';
 echo 'var b=document.getElementById("' . $elementID . '");';
 echo 'var r=o.library.highlight("' . $language . '",b.innerText);';
