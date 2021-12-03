@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Social sharing addon for Bear Framework
- * https://github.com/ivopetkov/social-sharing-bearframework-addon
- * Copyright (c) Ivo Petkov
+ * Code element addon for Bear CMS
+ * https://github.com/bearcms/code-element-addon
+ * Copyright (c) Amplilabs Ltd.
  * Free to use under the MIT license.
  */
 
