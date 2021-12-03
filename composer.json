@@ -21,6 +21,9 @@
         "bearframework/localization-addon": "1.*",
         "ivopetkov/client-packages-bearframework-addon": "1.*"
     },
+    "require-dev": {
+        "bearcms/addon-tests": "1.*"
+    },
     "autoload": {
         "files": [
             "autoload.php"
