@@ -26,20 +26,18 @@ $app->bearCMS->addons
                     return include $context->dir . '/locales/bg.php';
                 });
 
-            \BearCMS\Internal\ElementsTypes::add('code', [
-                'componentSrc' => 'bearcms-code-element',
-                'componentFilename' => $context->dir . '/components/codeElement.php',
-                'fields' => [
-                    [
-                        'id' => 'code',
-                        'type' => 'textbox'
-                    ],
-                    [
-                        'id' => 'language',
-                        'type' => 'textbox'
-                    ]
+            $type = new \BearCMS\Internal\ElementType('code', 'bearcms-code-element', $context->dir . '/components/codeElement.php');
+            $type->properties = [
+                [
+                    'id' => 'code',
+                    'type' => 'string'
+                ],
+                [
+                    'id' => 'language',
+                    'type' => 'string'
                 ]
-            ]);
+            ];
+            \BearCMS\Internal\ElementsTypes::add($type);
 
             $languages = [
                 'apache' => 'Apache',
