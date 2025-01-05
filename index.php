@@ -12,8 +12,8 @@ use BearFramework\App;
 $app = App::get();
 
 $app->bearCMS->addons
-    ->register('bearcms/code-element-addon', function (\BearCMS\Addons\Addon $addon) use ($app) {
-        $addon->initialize = function () use ($app) {
+    ->register('bearcms/code-element-addon', function (\BearCMS\Addons\Addon $addon) use ($app): void {
+        $addon->initialize = function () use ($app): void {
             $context = $app->contexts->get(__DIR__);
 
             $context->assets->addDir('assets');
@@ -71,7 +71,7 @@ $app->bearCMS->addons
 
             \BearCMS\Internal\Config::$appSpecificServerData['kzn49al1'] = json_encode($languages);
 
-            \BearCMS\Internal\Themes::$elementsOptions['code'] = function ($context, $idPrefix, $parentSelector) {
+            \BearCMS\Internal\Themes::$elementsOptions['code'] = function ($context, $idPrefix, $parentSelector): void {
                 $groupCode = $context->addGroup(__('bearcms.addon.code-element.theme.options.Code'));
                 $groupCode->addOption($idPrefix . "CodeCSS", "css", '', [
                     "cssOutput" => [
@@ -116,7 +116,7 @@ $app->bearCMS->addons
             };
 
             $app->clientPackages
-                ->add('-bearcms-code-element-highlight', function ($package) use ($context) {
+                ->add('-bearcms-code-element-highlight', function ($package) use ($context): void {
                     $code = 'window.bearcmscodeelementh={};';
                     $libraryCode = include $context->dir . '/helpers/highlightjs/highlight.js.php';
                     $code .= 'var f=' . $libraryCode . 'f(window.bearcmscodeelementh);';
@@ -129,7 +129,7 @@ $app->bearCMS->addons
                 });
             foreach ($languages as $languageID => $languageName) {
                 $app->clientPackages
-                    ->add('-bearcms-code-element-highlight-' . $languageID, function ($package) use ($context, $languageID) {
+                    ->add('-bearcms-code-element-highlight-' . $languageID, function ($package) use ($context, $languageID): void {
                         $languageCode = include $context->dir . '/helpers/highlightjs/languages/' . $languageID . '.js.php';
                         $code = 'clientPackages.get("-bearcms-code-element-highlight").then(function(o){';
                         $code .= 'var f=' . $languageCode . ';o.library.registerLanguage("' . $languageID . '",f);';
